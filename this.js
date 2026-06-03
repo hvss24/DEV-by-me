@@ -38,3 +38,26 @@ const greet2 = greet.bind(person);
 
 greet2();
 
+
+//this keyword in arrow function
+
+// 1. Lexical Scoping
+
+const obj = {
+    name: "Harsh",
+    getName: ()=>this.name
+};
+
+console.log(obj.getName());
+
+// 2. Useful in callbacks
+
+function Timer(){
+    this.seconds = 0;
+    setInterval(()=>{
+        this.seconds++;
+        console.log(this.seconds);
+    },1000)
+}
+
+const timer = new Timer();
